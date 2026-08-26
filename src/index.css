@@ -1,0 +1,166 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Industrial dark palette */
+  --color-ink: #0a0b0d;
+  --color-ink-800: #101216;
+  --color-steel-900: #14171c;
+  --color-steel-800: #1a1e25;
+  --color-steel-700: #232830;
+  --color-steel-600: #2e3540;
+  --color-steel-500: #444d5a;
+
+  --color-gold: #e0b463;
+  --color-gold-bright: #f2d091;
+  --color-gold-deep: #b8873a;
+
+  --color-mist: #e9ecf1;
+  --color-mist-dim: #a6aeba;
+  --color-mist-faint: #7c8593;
+
+  --font-display: 'Barlow Condensed', 'Arial Narrow', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-mist);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Fine engineering grid used behind dark sections */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(224, 180, 99, 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(224, 180, 99, 0.055) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .bg-hatch {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(224, 180, 99, 0.08) 0px,
+      rgba(224, 180, 99, 0.08) 1px,
+      transparent 1px,
+      transparent 9px
+    );
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(100deg, #f2d091 0%, #e0b463 45%, #b8873a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .rule-gold {
+    background: linear-gradient(90deg, transparent, rgba(224, 180, 99, 0.55), transparent);
+  }
+}
+
+/*
+ * Scroll-reveal. Content is visible by default; the hidden state only applies
+ * once JS has added `.reveal-ready` to <html>, so no-JS and failure paths
+ * always render readable content.
+ */
+.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-ready .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes spindle-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes chip-drift {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg);
+  }
+  30% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(26px, -22px) rotate(140deg);
+  }
+}
+
+.animate-spindle {
+  animation: spindle-bob 4.5s ease-in-out infinite;
+}

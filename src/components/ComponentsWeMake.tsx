@@ -1,0 +1,77 @@
+import { MessageCircle, Phone } from 'lucide-react'
+import { Section, SectionHeading } from './ui/Section'
+import { ButtonLink } from './ui/Button'
+import { BUSINESS, LINKS } from '../lib/business'
+
+const COMPONENTS = [
+  { name: 'Auto Parts', note: 'Machined components for automotive applications' },
+  { name: 'Cycle Parts', note: 'Bicycle and cycle component machining' },
+  { name: 'Agricultural Tool Parts', note: 'Parts for implements and farm equipment' },
+  { name: 'Machine Components', note: 'Replacement and production machine parts' },
+  { name: 'Custom Brackets', note: 'Mounts, brackets and support components' },
+  { name: 'Precision Mechanical Parts', note: 'Parts with defined machined features' },
+  { name: 'Fixtures & Tooling Components', note: 'Workholding and tooling elements' },
+  { name: 'Other VMC-Machinable Components', note: 'Send the drawing and we will review it' },
+]
+
+export function ComponentsWeMake() {
+  return (
+    <Section grid className="bg-ink">
+      <SectionHeading
+        eyebrow="Examples"
+        title={
+          <>
+            Components We Can <span className="text-gold">Manufacture</span>
+          </>
+        }
+        intro="A sense of the kind of work we take on. Suitability always depends on the component, so share the details and we will review it with you."
+      />
+
+      <ul className="mt-12 grid gap-px overflow-hidden rounded-sm border border-steel-700 bg-steel-700 sm:grid-cols-2 lg:grid-cols-4">
+        {COMPONENTS.map(({ name, note }, i) => (
+          <li
+            key={name}
+            className="group relative flex flex-col justify-between gap-6 bg-steel-900 p-6 transition-colors duration-200 hover:bg-steel-800"
+          >
+            <span
+              aria-hidden="true"
+              className="font-display text-3xl font-bold text-steel-600 transition-colors duration-200 group-hover:text-gold/70"
+            >
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <div>
+              <h3 className="font-display text-lg leading-tight font-bold tracking-wide text-mist uppercase">
+                {name}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-mist-faint">{note}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <div className="reveal mt-10 overflow-hidden rounded-sm border border-gold/40 bg-gradient-to-r from-steel-800 via-steel-900 to-steel-800 p-7 sm:p-10">
+        <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-2xl">
+            <h3 className="text-2xl leading-tight font-bold text-mist uppercase sm:text-3xl">
+              Have a component that needs machining?
+            </h3>
+            <p className="mt-3 text-base leading-relaxed text-mist-dim">
+              Send us the drawing, dimensions or sample and discuss your requirement with
+              us.
+            </p>
+          </div>
+          <div className="flex w-full flex-col gap-3 sm:flex-row lg:w-auto">
+            <ButtonLink href={LINKS.whatsapp} variant="whatsapp" size="lg" external>
+              <MessageCircle className="h-5 w-5" aria-hidden="true" />
+              WhatsApp Us
+            </ButtonLink>
+            <ButtonLink href={LINKS.tel} variant="primary" size="lg">
+              <Phone className="h-5 w-5" aria-hidden="true" />
+              {BUSINESS.phoneDisplay}
+            </ButtonLink>
+          </div>
+        </div>
+      </div>
+    </Section>
+  )
+}

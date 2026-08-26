@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://advance-solutions-ludhiana.vercel.app/sitemap.xml
