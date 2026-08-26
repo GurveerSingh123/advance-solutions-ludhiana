@@ -20,8 +20,9 @@ const variants: Record<Variant, string> = {
   outline:
     'border border-steel-600 text-mist hover:border-gold hover:text-gold bg-steel-900/40 hover:bg-steel-800/70',
   ghost: 'text-mist hover:text-gold',
+  // Dark text on the bright WhatsApp green keeps the brand cue at ~9.6:1 contrast.
   whatsapp:
-    'bg-[#1FA855] text-white hover:bg-[#25D366] hover:text-ink shadow-[0_10px_30px_-12px_rgba(37,211,102,0.75)]',
+    'bg-[#25D366] text-ink hover:bg-[#3DE07A] shadow-[0_10px_30px_-12px_rgba(37,211,102,0.75)]',
 }
 
 const sizes: Record<Size, string> = {

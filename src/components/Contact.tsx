@@ -19,7 +19,7 @@ export function Contact() {
 
       <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1fr] lg:gap-8">
         {/* details */}
-        <div className="reveal rounded-sm border border-steel-700 bg-steel-900/80 p-7 sm:p-9">
+        <div className="reveal min-w-0 rounded-sm border border-steel-700 bg-steel-900/80 p-6 sm:p-9">
           <dl className="space-y-7">
             <div className="flex items-start gap-4">
               <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-gold/35 bg-gold/10">
@@ -65,7 +65,7 @@ export function Contact() {
                 <dd className="mt-1">
                   <a
                     href={LINKS.email}
-                    className="text-base break-words text-mist transition-colors hover:text-gold sm:text-lg"
+                    className="text-sm break-all text-mist transition-colors hover:text-gold sm:text-base lg:text-lg"
                   >
                     {BUSINESS.email}
                   </a>
@@ -115,7 +115,7 @@ export function Contact() {
         </div>
 
         {/* map */}
-        <div className="reveal overflow-hidden rounded-sm border border-steel-700 bg-steel-900">
+        <div className="reveal min-w-0 overflow-hidden rounded-sm border border-steel-700 bg-steel-900">
           <iframe
             title="Map showing the location of Advance Solutions, Kot Mangal Singh Nagar, Ludhiana"
             src={LINKS.mapEmbed}
