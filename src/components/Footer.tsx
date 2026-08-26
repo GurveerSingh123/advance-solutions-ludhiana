@@ -12,7 +12,7 @@ export function Footer() {
       <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1.2fr]">
           <div>
-            <Logo markClassName="h-11 w-11" />
+            <Logo markClassName="h-11 w-auto" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-mist-dim">
               {BUSINESS.tagline}
             </p>

@@ -1,9 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Advance Solutions">
   <rect width="128" height="128" rx="24" fill="#0A0B0D"/>
-  <g fill="none" stroke="#E0B463" stroke-width="7" stroke-linejoin="round">
-    <circle cx="64" cy="64" r="40"/>
-    <path d="M42 88 L62 38 L82 88"/>
-    <path d="M92 46c-6-5-19-4-22 3s9 11 15 15 5 13-3 16-16 1-21-4" stroke-linecap="round"/>
-    <path d="M12 76 L116 58" stroke-linecap="butt"/>
+  <!-- AS monogram (artwork space 55,40 300x220) fitted into the square -->
+  <g transform="translate(6.4,29.3) scale(0.384)">
+    <g transform="translate(-55,-40)">
+      <circle cx="200" cy="150" r="95" fill="none" stroke="#B8873A" stroke-width="15"/>
+      <g fill="none" stroke="#E0B463" stroke-width="17" stroke-linecap="butt" stroke-linejoin="round">
+        <path d="M 339 119 L 250 129 C 227 132, 218 146, 236 153 C 252 159, 271 163, 272 175 C 273 187, 256 193, 236 194 L 72 196"/>
+        <path d="M 109 192 L 163 111 L 203 242"/>
+      </g>
+    </g>
   </g>
 </svg>

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#12161c"/>
@@ -19,16 +19,17 @@
   <rect width="1200" height="630" fill="url(#grid)"/>
   <circle cx="1010" cy="150" r="240" fill="#e0b463" fill-opacity="0.06"/>
 
-  <!-- logo mark -->
-  <g transform="translate(96,86) scale(0.95)" fill="none" stroke="url(#gold)" stroke-width="7" stroke-linejoin="round">
-    <circle cx="64" cy="64" r="40"/>
-    <path d="M42 88 L62 38 L82 88"/>
-    <path d="M92 46c-6-5-19-4-22 3s9 11 15 15 5 13-3 16-16 1-21-4" stroke-linecap="round"/>
-    <path d="M12 76 L116 58"/>
+  <!-- AS monogram (artwork space 55,40 300x220) -->
+  <g transform="translate(53,75) scale(0.636)">
+    <circle cx="200" cy="150" r="95" fill="none" stroke="#B8873A" stroke-width="15"/>
+    <g fill="none" stroke="url(#gold)" stroke-width="17" stroke-linecap="butt" stroke-linejoin="round">
+      <path d="M 339 119 L 250 129 C 227 132, 218 146, 236 153 C 252 159, 271 163, 272 175 C 273 187, 256 193, 236 194 L 72 196"/>
+      <path d="M 109 192 L 163 111 L 203 242"/>
+    </g>
   </g>
 
-  <text x="238" y="152" font-family="'Barlow Condensed','Arial Narrow',Arial,sans-serif" font-size="52" font-weight="700" letter-spacing="10" fill="#e9ecf1">ADVANCE</text>
-  <text x="238" y="206" font-family="'Barlow Condensed','Arial Narrow',Arial,sans-serif" font-size="52" font-weight="700" letter-spacing="10" fill="#e0b463">SOLUTIONS</text>
+  <text x="300" y="152" font-family="'Barlow Condensed','Arial Narrow',Arial,sans-serif" font-size="52" font-weight="700" letter-spacing="10" fill="#e9ecf1">ADVANCE</text>
+  <text x="300" y="206" font-family="'Barlow Condensed','Arial Narrow',Arial,sans-serif" font-size="52" font-weight="700" letter-spacing="10" fill="#e0b463">SOLUTIONS</text>
 
   <line x1="96" y1="266" x2="1104" y2="266" stroke="#e0b463" stroke-opacity="0.35" stroke-width="2"/>
 

@@ -56,7 +56,7 @@ export function Navbar() {
             className="shrink-0 py-3"
             aria-label="Advance Solutions — back to top"
           >
-            <Logo markClassName="h-9 w-9 sm:h-10 sm:w-10" />
+            <Logo markClassName="h-8 w-auto sm:h-9" />
           </a>
 
           <ul className="hidden items-center gap-1 lg:flex">
