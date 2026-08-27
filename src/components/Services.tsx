@@ -14,6 +14,7 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import { Section, SectionHeading } from './ui/Section'
 import { ButtonLink } from './ui/Button'
+import { ROUTES } from '../lib/pages'
 
 type Service = { title: string; body: string; Icon: LucideIcon }
 
@@ -73,21 +74,24 @@ const SERVICES: Service[] = [
   },
 ]
 
-export function Services() {
+/** `hideHeading` suppresses the section heading when the page already has one. */
+export function Services({ hideHeading = false }: { hideHeading?: boolean }) {
   return (
     <Section id="services" className="bg-ink-800">
-      <SectionHeading
-        eyebrow="What We Do"
-        title={
-          <>
-            Engineering &amp; Manufacturing <span className="text-gold">Services</span>
-          </>
-        }
-        intro="From design and programming through to machined, finished components — supported by fabrication and industrial solutions for the shop floor."
-      />
+      {!hideHeading && (
+        <SectionHeading
+          eyebrow="What We Do"
+          title={
+            <>
+              Engineering &amp; Manufacturing <span className="text-gold">Services</span>
+            </>
+          }
+          intro="From design and programming through to machined, finished components — supported by fabrication and industrial solutions for the shop floor."
+        />
+      )}
 
       {/* Core services — visually prominent */}
-      <div className="mt-12 grid gap-5 md:grid-cols-2">
+      <div className={`${hideHeading ? '' : 'mt-12'} grid gap-5 md:grid-cols-2`}>
         {CORE_SERVICES.map(({ title, body, Icon }, i) => (
           <article
             key={title}
@@ -114,7 +118,7 @@ export function Services() {
               {body}
             </p>
             <a
-              href="#contact"
+              href={ROUTES.contact}
               className="mt-6 inline-flex items-center gap-1.5 font-display text-sm font-semibold tracking-[0.16em] text-gold uppercase transition-colors hover:text-gold-bright"
             >
               Discuss your part
@@ -148,7 +152,7 @@ export function Services() {
         <p className="font-display text-xl font-semibold tracking-wide text-mist uppercase sm:text-2xl">
           Not sure which service your job needs?
         </p>
-        <ButtonLink href="#contact" variant="primary" size="md" className="shrink-0">
+        <ButtonLink href={ROUTES.contact} variant="primary" size="md" className="shrink-0">
           Talk to Us
           <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
         </ButtonLink>

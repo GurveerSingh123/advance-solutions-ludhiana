@@ -42,11 +42,3 @@ export const LINKS = {
   )}&output=embed`,
 } as const
 
-export const NAV_LINKS = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Manufacturing', href: '#manufacturing' },
-  { label: 'Industries', href: '#industries' },
-  { label: 'Contact', href: '#contact' },
-] as const

@@ -1,6 +1,7 @@
 import { Mail, MapPin, Phone } from 'lucide-react'
 import { Logo } from './ui/Logo'
-import { BUSINESS, LINKS, NAV_LINKS } from '../lib/business'
+import { BUSINESS, LINKS } from '../lib/business'
+import { NAV_LINKS } from '../lib/pages'
 
 export function Footer() {
   return (

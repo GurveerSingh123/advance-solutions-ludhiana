@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react'
 import { Menu, Phone, X } from 'lucide-react'
 import { Logo } from './ui/Logo'
 import { ButtonLink } from './ui/Button'
-import { BUSINESS, LINKS, NAV_LINKS } from '../lib/business'
+import { BUSINESS, LINKS } from '../lib/business'
+import { NAV_LINKS, ROUTES, isCurrentPath } from '../lib/pages'
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const pathname = typeof window === 'undefined' ? '/' : window.location.pathname
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -51,25 +53,33 @@ export function Navbar() {
           aria-label="Primary"
           className="mx-auto flex h-18 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8"
         >
-          <a
-            href="#home"
-            className="shrink-0 py-3"
-            aria-label="Advance Solutions — back to top"
-          >
+          <a href={ROUTES.home} className="shrink-0 py-3" aria-label="Advance Solutions — home">
             <Logo markClassName="h-8 w-auto sm:h-9" />
           </a>
 
           <ul className="hidden items-center gap-1 lg:flex">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="relative block px-3.5 py-2 font-display text-[15px] font-semibold tracking-widest text-mist-dim uppercase transition-colors duration-200 hover:text-gold"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const current = isCurrentPath(link.href, pathname)
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    aria-current={current ? 'page' : undefined}
+                    className={`relative block px-3.5 py-2 font-display text-[15px] font-semibold tracking-widest uppercase transition-colors duration-200 hover:text-gold ${
+                      current ? 'text-gold' : 'text-mist-dim'
+                    }`}
+                  >
+                    {link.label}
+                    {current && (
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-x-3.5 -bottom-0.5 h-0.5 bg-gold"
+                      />
+                    )}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
 
           <div className="hidden items-center gap-3 lg:flex">
@@ -80,7 +90,7 @@ export function Navbar() {
               <Phone className="h-4 w-4 text-gold" aria-hidden="true" />
               {BUSINESS.phoneDisplay}
             </a>
-            <ButtonLink href="#contact" variant="primary" size="md">
+            <ButtonLink href={ROUTES.contact} variant="primary" size="md">
               Get a Quote
             </ButtonLink>
           </div>
@@ -108,21 +118,27 @@ export function Navbar() {
           className="border-t border-steel-700/70 bg-ink/95 backdrop-blur-md lg:hidden"
         >
           <ul className="mx-auto flex w-full max-w-7xl flex-col px-5 py-3 sm:px-8">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block border-b border-steel-800 py-3.5 font-display text-lg font-semibold tracking-widest text-mist uppercase transition-colors hover:text-gold"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const current = isCurrentPath(link.href, pathname)
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    aria-current={current ? 'page' : undefined}
+                    onClick={() => setOpen(false)}
+                    className={`block border-b border-steel-800 py-3.5 font-display text-lg font-semibold tracking-widest uppercase transition-colors hover:text-gold ${
+                      current ? 'text-gold' : 'text-mist'
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
           <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-5 pt-2 pb-6 sm:px-8">
             <ButtonLink
-              href="#contact"
+              href={ROUTES.contact}
               variant="primary"
               size="lg"
               onClick={() => setOpen(false)}

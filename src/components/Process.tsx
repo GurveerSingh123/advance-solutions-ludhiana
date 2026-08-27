@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import { Section, SectionHeading } from './ui/Section'
 import { ButtonLink } from './ui/Button'
+import { ROUTES } from '../lib/pages'
 
 const STEPS = [
   {
@@ -66,7 +67,7 @@ export function Process() {
         <p className="font-display text-xl font-semibold tracking-wide text-mist uppercase sm:text-2xl">
           Have a drawing or sample? Let&apos;s discuss your requirement.
         </p>
-        <ButtonLink href="#contact" variant="primary" size="lg">
+        <ButtonLink href={ROUTES.contact} variant="primary" size="lg">
           Get a Quote
           <ArrowRight className="h-5 w-5" aria-hidden="true" />
         </ButtonLink>

@@ -3,21 +3,26 @@ import { Section, SectionHeading } from './ui/Section'
 import { ButtonLink } from './ui/Button'
 import { BUSINESS, LINKS } from '../lib/business'
 
-export function Contact() {
+/** `hideHeading` suppresses the section heading when the page already has one. */
+export function Contact({ hideHeading = false }: { hideHeading?: boolean }) {
   return (
     <Section id="contact" grid className="bg-ink-800">
-      <SectionHeading
-        eyebrow="Contact"
-        align="center"
-        title={
-          <>
-            Let&apos;s Manufacture Your <span className="text-gold">Requirement</span>
-          </>
-        }
-        intro="Have a drawing, sample or custom component requirement? Contact Advance Solutions to discuss your machining and manufacturing requirement."
-      />
+      {!hideHeading && (
+        <SectionHeading
+          eyebrow="Contact"
+          align="center"
+          title={
+            <>
+              Let&apos;s Manufacture Your <span className="text-gold">Requirement</span>
+            </>
+          }
+          intro="Have a drawing, sample or custom component requirement? Contact Advance Solutions to discuss your machining and manufacturing requirement."
+        />
+      )}
 
-      <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1fr] lg:gap-8">
+      <div
+        className={`${hideHeading ? '' : 'mt-12'} grid gap-6 lg:grid-cols-[1fr_1fr] lg:gap-8`}
+      >
         {/* details */}
         <div className="reveal min-w-0 rounded-sm border border-steel-700 bg-steel-900/80 p-6 sm:p-9">
           <dl className="space-y-7">

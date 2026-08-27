@@ -27,14 +27,45 @@ npm run build    # type-check (tsc -b) + production build to dist/
 npm run preview  # serve the production build locally
 ```
 
+## Pages
+
+A Vite **multi-page app** — every route is a real static HTML file with its own
+`<title>`, meta description, canonical and Open Graph tags. That matters
+because WhatsApp and Facebook link unfurlers do not execute JavaScript, so a
+shared `/services/` link has to carry its own tags in the served HTML.
+
+| Route | Content |
+|---|---|
+| `/` | Hero, capabilities, and a teaser for each section |
+| `/about/` | Full about, why-us |
+| `/services/` | All ten services, process |
+| `/manufacturing/` | VMC/CNC detail, what we can machine |
+| `/industries/` | Sectors served, example components |
+| `/contact/` | Details, buttons, map |
+| `/404.html` | Not-found page (`noindex`) |
+
+Adding or renaming a page means editing one file,
+[`src/lib/pages.ts`](src/lib/pages.ts) — it drives the nav, the footer, the
+breadcrumbs, the build entry points and each page's `<head>`. Then add the
+matching HTML shell and an entry in `src/entries/`.
+
+Each HTML shell is deliberately bare: a `<!--@head-->` placeholder that the
+`page-head` plugin in [`vite.config.ts`](vite.config.ts) fills in at build
+time, so head tags are never duplicated across seven files.
+
 ## Project layout
 
 ```
+index.html, about/, services/, ...   one bare HTML shell per route
 src/
-  components/       one component per page section
+  entries/          one mount script per route
+  pages/            one component per route
+  components/       shared page sections
+    home/           home-page teasers that link out to full pages
     ui/             Logo, Section, Button primitives
   hooks/            useReveal (scroll-reveal)
-  lib/business.ts   all contact details, in one place
+  lib/business.ts   contact details, in one place
+  lib/pages.ts      routes, nav order and per-page SEO metadata
 scripts/            one-off asset generators (not part of the build)
 ```
 

@@ -35,21 +35,26 @@ const INDUSTRIES: { title: string; body: string; Icon: LucideIcon }[] = [
   },
 ]
 
-export function Industries() {
+/** `hideHeading` suppresses the section heading when the page already has one. */
+export function Industries({ hideHeading = false }: { hideHeading?: boolean }) {
   return (
     <Section id="industries" className="bg-ink-800">
-      <SectionHeading
-        eyebrow="Where We Work"
-        align="center"
-        title={
-          <>
-            Industries We <span className="text-gold">Serve</span>
-          </>
-        }
-        intro="Ludhiana's manufacturing base runs on machined components. We supply parts across the sectors that need them."
-      />
+      {!hideHeading && (
+        <SectionHeading
+          eyebrow="Where We Work"
+          align="center"
+          title={
+            <>
+              Industries We <span className="text-gold">Serve</span>
+            </>
+          }
+          intro="Ludhiana's manufacturing base runs on machined components. We supply parts across the sectors that need them."
+        />
+      )}
 
-      <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <ul
+        className={`${hideHeading ? '' : 'mt-12'} grid gap-5 sm:grid-cols-2 lg:grid-cols-3`}
+      >
         {INDUSTRIES.map(({ title, body, Icon }, i) => (
           <li
             key={title}

@@ -2,6 +2,7 @@ import { ArrowRight, MessageCircle, Phone } from 'lucide-react'
 import { ButtonLink } from './ui/Button'
 import { MachiningGraphic } from './MachiningGraphic'
 import { BUSINESS, LINKS } from '../lib/business'
+import { ROUTES } from '../lib/pages'
 
 const HIGHLIGHTS = ['CAD / CAM', 'VMC Machining', 'CNC Solutions', 'Custom Components']
 
@@ -38,7 +39,7 @@ export function Hero() {
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-            <ButtonLink href="#contact" variant="primary" size="lg">
+            <ButtonLink href={ROUTES.contact} variant="primary" size="lg">
               Get a Quote
               <ArrowRight className="h-5 w-5" aria-hidden="true" />
             </ButtonLink>

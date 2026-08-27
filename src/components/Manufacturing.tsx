@@ -13,6 +13,7 @@ import type { LucideIcon } from 'lucide-react'
 import { Section, SectionHeading } from './ui/Section'
 import { ButtonLink } from './ui/Button'
 import { LINKS } from '../lib/business'
+import { ROUTES } from '../lib/pages'
 
 const INPUTS: { label: string; note: string; Icon: LucideIcon }[] = [
   { label: 'CAD Files', note: 'STEP, IGES, DWG or native models', Icon: FileBox },
@@ -30,23 +31,28 @@ const WORKFLOW: { step: string; label: string; Icon: LucideIcon }[] = [
   { step: '05', label: 'Finished Component', Icon: Package },
 ]
 
-export function Manufacturing() {
+/** `hideHeading` suppresses the section heading when the page already has one. */
+export function Manufacturing({ hideHeading = false }: { hideHeading?: boolean }) {
   return (
     <Section id="manufacturing" grid className="bg-ink">
-      <SectionHeading
-        eyebrow="Core Capability"
-        align="center"
-        title={
-          <>
-            Custom <span className="text-gold">VMC Machining</span> &amp; Component
-            Manufacturing
-          </>
-        }
-        intro="Send us what you have. We work out how the component can be produced and machine it where the geometry is suited to VMC/CNC work."
-      />
+      {!hideHeading && (
+        <SectionHeading
+          eyebrow="Core Capability"
+          align="center"
+          title={
+            <>
+              Custom <span className="text-gold">VMC Machining</span> &amp; Component
+              Manufacturing
+            </>
+          }
+          intro="Send us what you have. We work out how the component can be produced and machine it where the geometry is suited to VMC/CNC work."
+        />
+      )}
 
       {/* What you can send us */}
-      <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <ul
+        className={`${hideHeading ? '' : 'mt-12'} grid gap-4 sm:grid-cols-2 lg:grid-cols-5`}
+      >
         {INPUTS.map(({ label, note, Icon }, i) => (
           <li
             key={label}
@@ -104,7 +110,7 @@ export function Manufacturing() {
             <MessageCircle className="h-5 w-5" aria-hidden="true" />
             Send Your Drawing
           </ButtonLink>
-          <ButtonLink href="#contact" variant="outline" size="lg">
+          <ButtonLink href={ROUTES.contact} variant="outline" size="lg">
             Contact Us
           </ButtonLink>
         </div>

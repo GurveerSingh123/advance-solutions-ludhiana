@@ -25,22 +25,27 @@ const PILLARS: { title: string; body: string; Icon: LucideIcon }[] = [
   },
 ]
 
-export function About() {
+/** `hideHeading` suppresses the section heading when the page already has one. */
+export function About({ hideHeading = false }: { hideHeading?: boolean }) {
   return (
     <Section id="about" grid className="bg-ink">
       <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
         <div>
-          <SectionHeading
-            eyebrow="About Advance Solutions"
-            title={
-              <>
-                Engineering Solutions Built{' '}
-                <span className="text-gold">Around Your Requirements</span>
-              </>
-            }
-          />
+          {!hideHeading && (
+            <SectionHeading
+              eyebrow="About Advance Solutions"
+              title={
+                <>
+                  Engineering Solutions Built{' '}
+                  <span className="text-gold">Around Your Requirements</span>
+                </>
+              }
+            />
+          )}
 
-          <div className="reveal mt-6 space-y-5 text-base leading-relaxed text-mist-dim sm:text-lg">
+          <div
+            className={`reveal ${hideHeading ? '' : 'mt-6'} space-y-5 text-base leading-relaxed text-mist-dim sm:text-lg`}
+          >
             <p>
               Advance Solutions is a mechanical engineering and manufacturing setup based
               in Ludhiana, Punjab. We work with customers to convert drawings, CAD designs,
