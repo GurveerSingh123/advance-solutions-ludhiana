@@ -16,12 +16,12 @@ export function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Advance Solutions on WhatsApp"
-      className="group fixed right-4 bottom-4 z-40 flex items-center gap-3 rounded-full bg-[#25D366] py-3 pr-4 pl-3 text-ink shadow-[0_14px_38px_-10px_rgba(37,211,102,0.75)] transition-transform duration-200 hover:scale-105 focus-visible:scale-105 sm:right-6 sm:bottom-6"
+      className="group fixed right-4 bottom-4 z-40 flex items-center gap-3 rounded-full bg-wa py-3 pr-4 pl-3 text-ink shadow-[0_10px_30px_-12px_rgba(31,168,85,0.6)] transition-transform duration-200 hover:scale-105 focus-visible:scale-105 sm:right-6 sm:bottom-6"
     >
       <span className="relative flex h-8 w-8 items-center justify-center">
         <span
           aria-hidden="true"
-          className="absolute inset-0 animate-ping rounded-full bg-ink/25 [animation-duration:2.8s]"
+          className="absolute inset-0 animate-ping rounded-full bg-ink/15 [animation-duration:3.5s]"
         />
         <WhatsAppIcon className="relative h-8 w-8" />
       </span>

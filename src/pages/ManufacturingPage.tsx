@@ -1,7 +1,6 @@
 import { PageHeader } from '../components/PageHeader'
 import { Manufacturing } from '../components/Manufacturing'
 import { ComponentsWeMake } from '../components/ComponentsWeMake'
-import { CtaBand } from '../components/CtaBand'
 
 export function ManufacturingPage() {
   return (
@@ -19,7 +18,6 @@ export function ManufacturingPage() {
       />
       <Manufacturing hideHeading />
       <ComponentsWeMake />
-      <CtaBand />
     </>
   )
 }

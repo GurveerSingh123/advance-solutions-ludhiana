@@ -14,15 +14,20 @@ type ButtonLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 const base =
   'inline-flex items-center justify-center gap-2.5 font-semibold tracking-wide uppercase font-display transition-[transform,background-color,border-color,color,box-shadow] duration-200 rounded-sm select-none active:translate-y-px'
 
+/*
+ * Filled variants use the dimmed `-solid` tokens and a soft, wide glow rather
+ * than a bright halo — the glow reads as depth without the eye strain a
+ * saturated full-width button causes on a dark page. Both keep dark text for
+ * contrast (gold ~7.4:1, green ~6.1:1).
+ */
 const variants: Record<Variant, string> = {
   primary:
-    'bg-gold text-ink hover:bg-gold-bright shadow-[0_10px_30px_-12px_rgba(224,180,99,0.7)] hover:shadow-[0_14px_36px_-10px_rgba(224,180,99,0.85)]',
+    'bg-gold-solid text-ink hover:bg-gold-solid-hover shadow-[0_8px_28px_-14px_rgba(198,154,79,0.55)] hover:shadow-[0_10px_32px_-12px_rgba(198,154,79,0.7)]',
   outline:
     'border border-steel-600 text-mist hover:border-gold hover:text-gold bg-steel-900/40 hover:bg-steel-800/70',
   ghost: 'text-mist hover:text-gold',
-  // Dark text on the bright WhatsApp green keeps the brand cue at ~9.6:1 contrast.
   whatsapp:
-    'bg-[#25D366] text-ink hover:bg-[#3DE07A] shadow-[0_10px_30px_-12px_rgba(37,211,102,0.75)]',
+    'bg-wa text-ink hover:bg-wa-hover shadow-[0_8px_28px_-14px_rgba(31,168,85,0.55)] hover:shadow-[0_10px_32px_-12px_rgba(31,168,85,0.7)]',
 }
 
 const sizes: Record<Size, string> = {

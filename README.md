@@ -36,13 +36,19 @@ shared `/services/` link has to carry its own tags in the served HTML.
 
 | Route | Content |
 |---|---|
-| `/` | Hero, capabilities, and a teaser for each section |
-| `/about/` | Full about, why-us |
-| `/services/` | All ten services, process |
-| `/manufacturing/` | VMC/CNC detail, what we can machine |
-| `/industries/` | Sectors served, example components |
-| `/contact/` | Details, buttons, map |
+| `/` | Hero, capability strip, signposts to the other pages |
+| `/about/` | Who we are, why customers work with us |
+| `/services/` | All ten services |
+| `/manufacturing/` | What to send us, the workflow, what we can machine |
+| `/industries/` | Sectors served |
+| `/contact/` | Details, call/WhatsApp/email/directions, map |
 | `/404.html` | Not-found page (`noindex`) |
+
+**Each block of content lives on exactly one page.** The home page signposts
+the others rather than previewing their cards, and contact details appear only
+on `/contact/` plus the persistent header, footer and WhatsApp button. When
+adding a section, put it on one page and link to it from elsewhere — do not
+copy the cards.
 
 Adding or renaming a page means editing one file,
 [`src/lib/pages.ts`](src/lib/pages.ts) — it drives the nav, the footer, the

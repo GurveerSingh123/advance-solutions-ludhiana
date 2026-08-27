@@ -1,5 +1,4 @@
 import {
-  ArrowUpRight,
   Boxes,
   CircleDot,
   Cog,
@@ -13,7 +12,6 @@ import {
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { Section, SectionHeading } from './ui/Section'
-import { ButtonLink } from './ui/Button'
 import { ROUTES } from '../lib/pages'
 
 type Service = { title: string; body: string; Icon: LucideIcon }
@@ -117,13 +115,6 @@ export function Services({ hideHeading = false }: { hideHeading?: boolean }) {
             <p className="relative mt-3.5 text-sm leading-relaxed text-mist-dim sm:text-base">
               {body}
             </p>
-            <a
-              href={ROUTES.contact}
-              className="mt-6 inline-flex items-center gap-1.5 font-display text-sm font-semibold tracking-[0.16em] text-gold uppercase transition-colors hover:text-gold-bright"
-            >
-              Discuss your part
-              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-            </a>
           </article>
         ))}
       </div>
@@ -148,15 +139,16 @@ export function Services({ hideHeading = false }: { hideHeading?: boolean }) {
         ))}
       </div>
 
-      <div className="reveal mt-10 flex flex-col items-start gap-4 rounded-sm border border-steel-700 bg-steel-900/60 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
-        <p className="font-display text-xl font-semibold tracking-wide text-mist uppercase sm:text-2xl">
-          Not sure which service your job needs?
-        </p>
-        <ButtonLink href={ROUTES.contact} variant="primary" size="md" className="shrink-0">
-          Talk to Us
-          <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-        </ButtonLink>
-      </div>
+      <p className="reveal mt-8 text-sm text-mist-dim">
+        Not sure which one your job needs?{' '}
+        <a
+          href={ROUTES.contact}
+          className="font-semibold text-gold underline underline-offset-4 transition-colors hover:text-gold-bright"
+        >
+          Talk to us
+        </a>
+        .
+      </p>
     </Section>
   )
 }

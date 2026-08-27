@@ -1,7 +1,6 @@
 import { PageHeader } from '../components/PageHeader'
 import { About } from '../components/About'
 import { WhyUs } from '../components/WhyUs'
-import { CtaBand } from '../components/CtaBand'
 
 export function AboutPage() {
   return (
@@ -19,7 +18,6 @@ export function AboutPage() {
       />
       <About hideHeading />
       <WhyUs />
-      <CtaBand />
     </>
   )
 }

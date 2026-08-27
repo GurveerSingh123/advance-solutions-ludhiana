@@ -1,21 +1,18 @@
 import { Hero } from '../components/Hero'
 import { CapabilityStrip } from '../components/CapabilityStrip'
-import { AboutTeaser } from '../components/home/AboutTeaser'
-import { ServicesTeaser } from '../components/home/ServicesTeaser'
-import { ManufacturingTeaser } from '../components/home/ManufacturingTeaser'
-import { IndustriesTeaser } from '../components/home/IndustriesTeaser'
-import { CtaBand } from '../components/CtaBand'
+import { ExploreSections } from '../components/home/ExploreSections'
 
+/**
+ * Deliberately short. The home page makes the pitch and points onward — the
+ * service cards, industry cards, workflow and contact details live on their
+ * own pages and are not repeated here.
+ */
 export function HomePage() {
   return (
     <>
       <Hero />
       <CapabilityStrip />
-      <AboutTeaser />
-      <ServicesTeaser />
-      <ManufacturingTeaser />
-      <IndustriesTeaser />
-      <CtaBand />
+      <ExploreSections />
     </>
   )
 }

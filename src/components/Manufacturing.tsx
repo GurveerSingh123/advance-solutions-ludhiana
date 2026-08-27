@@ -3,7 +3,6 @@ import {
   ClipboardList,
   Cog,
   FileBox,
-  MessageCircle,
   Package,
   Ruler,
   ScanSearch,
@@ -11,9 +10,6 @@ import {
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { Section, SectionHeading } from './ui/Section'
-import { ButtonLink } from './ui/Button'
-import { LINKS } from '../lib/business'
-import { ROUTES } from '../lib/pages'
 
 const INPUTS: { label: string; note: string; Icon: LucideIcon }[] = [
   { label: 'CAD Files', note: 'STEP, IGES, DWG or native models', Icon: FileBox },
@@ -100,21 +96,10 @@ export function Manufacturing({ hideHeading = false }: { hideHeading?: boolean }
         </ol>
       </div>
 
-      <div className="reveal mt-10 flex flex-col items-center gap-5 text-center">
-        <p className="max-w-2xl text-base leading-relaxed text-mist-dim sm:text-lg">
-          Share your drawing or sample and we will tell you honestly whether the component
-          is something we can machine for you.
-        </p>
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href={LINKS.whatsapp} variant="whatsapp" size="lg" external>
-            <MessageCircle className="h-5 w-5" aria-hidden="true" />
-            Send Your Drawing
-          </ButtonLink>
-          <ButtonLink href={ROUTES.contact} variant="outline" size="lg">
-            Contact Us
-          </ButtonLink>
-        </div>
-      </div>
+      <p className="reveal mx-auto mt-10 max-w-2xl text-center text-base leading-relaxed text-mist-dim sm:text-lg">
+        Share your drawing or sample and we will tell you honestly whether the component is
+        something we can machine for you.
+      </p>
     </Section>
   )
 }

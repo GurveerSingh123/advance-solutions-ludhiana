@@ -1,7 +1,6 @@
-import { MessageCircle, Phone } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Section, SectionHeading } from './ui/Section'
-import { ButtonLink } from './ui/Button'
-import { BUSINESS, LINKS } from '../lib/business'
+import { ROUTES } from '../lib/pages'
 
 const COMPONENTS = [
   { name: 'Auto Parts', note: 'Machined components for automotive applications' },
@@ -50,27 +49,19 @@ export function ComponentsWeMake() {
       </ul>
 
       <div className="reveal mt-10 overflow-hidden rounded-sm border border-gold/40 bg-gradient-to-r from-steel-800 via-steel-900 to-steel-800 p-7 sm:p-10">
-        <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-2xl">
-            <h3 className="text-2xl leading-tight font-bold text-mist uppercase sm:text-3xl">
-              Have a component that needs machining?
-            </h3>
-            <p className="mt-3 text-base leading-relaxed text-mist-dim">
-              Send us the drawing, dimensions or sample and discuss your requirement with
-              us.
-            </p>
-          </div>
-          <div className="flex w-full flex-col gap-3 sm:flex-row lg:w-auto">
-            <ButtonLink href={LINKS.whatsapp} variant="whatsapp" size="lg" external>
-              <MessageCircle className="h-5 w-5" aria-hidden="true" />
-              WhatsApp Us
-            </ButtonLink>
-            <ButtonLink href={LINKS.tel} variant="primary" size="lg">
-              <Phone className="h-5 w-5" aria-hidden="true" />
-              {BUSINESS.phoneDisplay}
-            </ButtonLink>
-          </div>
-        </div>
+        <h3 className="text-2xl leading-tight font-bold text-mist uppercase sm:text-3xl">
+          Have a component that needs machining?
+        </h3>
+        <p className="mt-3 max-w-2xl text-base leading-relaxed text-mist-dim">
+          Send us the drawing, dimensions or sample and discuss your requirement with us.
+        </p>
+        <a
+          href={ROUTES.contact}
+          className="mt-5 inline-flex items-center gap-1.5 font-display text-sm font-semibold tracking-[0.16em] text-gold uppercase transition-colors hover:text-gold-bright"
+        >
+          Get in touch
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </a>
       </div>
     </Section>
   )

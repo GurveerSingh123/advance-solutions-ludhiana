@@ -14,6 +14,17 @@
   --color-gold-bright: #f2d091;
   --color-gold-deep: #b8873a;
 
+  /*
+   * Filled-button surfaces. Deliberately dimmer than --color-gold: a large
+   * solid block of the accent (a full-width button on a phone) reads far
+   * brighter than the same colour used for text or an icon, and glares
+   * against the near-black background.
+   */
+  --color-gold-solid: #c69a4f;
+  --color-gold-solid-hover: #d8ac60;
+  --color-wa: #1fa855;
+  --color-wa-hover: #2bc066;
+
   --color-mist: #e9ecf1;
   --color-mist-dim: #a6aeba;
   --color-mist-faint: #7c8593;
